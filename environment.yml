@@ -5,3 +5,4 @@ dependencies:
   - r-tidyverse
   - r-ismev 
   - r-sp
+  - r-terra
