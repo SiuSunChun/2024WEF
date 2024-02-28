@@ -1,5 +1,5 @@
-##install.packages('sp') ###for your first run you need to install this packages
-library(sp)
+##install.packages('terra') ###for your first run you need to install this packages
+library(terra)
 
 ###Loading data
 HD<-read.csv('https://raw.githubusercontent.com/SiuSunChun/LearnRwithSun/main/Data/A0_Historical.csv')
