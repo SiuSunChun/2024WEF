@@ -1,5 +1,5 @@
 ##install.packages('terra') ###for your first run you need to install this packages
-library(terra)
+##library(terra)
 
 ###Loading data
 HD<-read.csv('https://raw.githubusercontent.com/SiuSunChun/LearnRwithSun/main/Data/A0_Historical.csv')
@@ -10,12 +10,12 @@ UK1<-readRDS(gzcon(url('https://github.com/SiuSunChun/LearnRwithSun/raw/main/Dat
 UK2<-readRDS(gzcon(url('https://github.com/SiuSunChun/LearnRwithSun/raw/main/Data/UKMap4.rds')))
 
 ###UK Catchment Maps
-plot(UK1,border=grey(0.6))
-plot(UK2,add=T,border=grey(0.6))
+sp::plot(UK1,border=grey(0.6))
+sp::plot(UK2,add=T,border=grey(0.6))
 axis(1)
 axis(2)
 box()
-text(coordinates(UK1)[,1],coordinates(UK1)[,2],UK1$geo_region,
+text(sp::coordinates(UK1)[,1],sp::coordinates(UK1)[,2],UK1$geo_region,
 pos=c(1,1,1, 3,1,1, 1,1,3,
 3,1,1, 1,3,3, 1,1,1,
 1,1,1,1,1),
