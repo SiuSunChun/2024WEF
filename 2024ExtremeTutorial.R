@@ -115,7 +115,7 @@ YY3<-gev.dens(PP3$mle, XX)
 ####plot density plots
 #options(repr.plot.width = 6, repr.plot.height = 6)
 par(mar=c(4,4.5,3,1.5))
-plot(XX,YY1, ylim =range(YY1,YY2,YY3),main='',xlab='Precipitation extreme (mm)',col='brown',lwd=2,ty='l',ylab='Density')
+plot(XX,YY1, ylim =range(YY1,YY2,YY3,na.rm=T),main='',xlab='Precipitation extreme (mm)',col='brown',lwd=2,ty='l',ylab='Density')
 lines(XX,YY2,col='orange',lwd=2)
 lines(XX,YY3,col='red',lwd=2)
 title(SeC,line=0.5)
@@ -126,5 +126,4 @@ Q1<-qgevs(1-1/100,PP1$mle[1],PP1$mle[2],PP1$mle[3])
 print(paste0('The ',SeC,' results'))
 print(paste0('The 1 in 100 year event is ',round(Q1,2),'mm for the UKCP18 simulation in 1980-2000'))
 ####It will be only 1 in 35 year event for the annual precipitation maximum at the Thames catchment in 2060-2080 under the RCP8.5 scenarios
-print(paste('1 in',round(1/(1-pgevs(Q1,PP3$mle[1],PP3$mle[2],PP3$mle[3])),0),'year in  2060-2080 under the RCP8.5 scenarios'))
-
+if (pgevs(Q1,PP3$mle[1],PP3$mle[2],PP3$mle[3])!=1) {print(paste('1 in',round(1/(1-pgevs(Q1,PP3$mle[1],PP3$mle[2],PP3$mle[3])),0),'year in  2060-2080 under the RCP8.5 scenarios'))} else {print('The 1 in 100 year event would become very frequent')}
